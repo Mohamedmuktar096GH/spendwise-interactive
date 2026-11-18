@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpendWise - Interactive Budget Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>SpendWise</h1>
+            <p>Smart Personal Budgeting Dashboard</p>
+        </header>
+
+        <!-- Budget Setup Section -->
+        <section class="card budget-setup">
+            <h2>1. Set Your Monthly Budget</h2>
+            <form id="budget-form">
+                <input type="number" id="budget-input" placeholder="Enter budget (e.g. 50000)" min="1" required>
+                <button type="submit">Set Budget</button>
+            </form>
+        </section>
+
+        <!-- Dynamic Feedback Banner (Conditionals) -->
+        <div id="status-banner" class="banner neutral">
+            Set a budget and add expenses to see your financial status.
+        </div>
+
+        <!-- Dashboard Summary Cards (DOM Manipulation) -->
+        <section class="dashboard-summary">
+            <div class="summary-card">
+                <h3>Total Budget</h3>
+                <p id="total-budget">KES 0</p>
+            </div>
+            <div class="summary-card">
+                <h3>Total Spent</h3>
+                <p id="total-spent">KES 0</p>
+            </div>
+            <div class="summary-card">
+                <h3>Remaining</h3>
+                <p id="remaining-balance">KES 0</p>
+            </div>
+        </section>
+
+        <!-- Add Expense Section -->
+        <section class="card expense-form-section">
+            <h2>2. Add New Expense</h2>
+            <form id="expense-form">
+                <input type="text" id="expense-name" placeholder="Expense Title (e.g. Groceries)" required>
+                <input type="number" id="expense-amount" placeholder="Amount (e.g. 2500)" min="1" required>
+                <select id="expense-category">
+                    <option value="Food">Food & Dining</option>
+                    <option value="Transport">Transport</option>
+                    <option value="Utilities">Utilities & Bills</option>
+                    <option value="Entertainment">Entertainment</option>
+                    <option value="Other">Other</option>
+                </select>
+                <button type="submit">Add Expense</button>
+            </form>
+        </section>
+
+        <!-- Expense History List (Arrays + Loops) -->
+        <section class="card expense-list-section">
+            <div class="list-header">
+                <h2>Expense History</h2>
+                <button id="clear-btn" class="danger-btn">Clear All</button>
+            </div>
+            <ul id="expense-list">
+                <!-- Expenses will be injected here dynamically via JavaScript -->
+            </ul>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
