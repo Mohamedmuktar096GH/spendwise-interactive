@@ -1,37 +1,37 @@
 # SpendWise — Interactive Budgeting Application
 
-SpendWise is a dynamic personal finance and expense tracking web application built with HTML, CSS, and JavaScript.
+## Project Description
+SpendWise is an interactive personal budgeting and expense tracking web application. Users can set a monthly budget, log expenses by category, receive real-time financial health alerts, and manage their spending records dynamically in the browser.
 
-## Improvements Made This Week
-- Upgraded SpendWise from a static layout/console script into a fully interactive web dashboard.
-- Added real-time budget setup and expense logging forms.
-- Implemented dynamic financial status alerts that react immediately as users add or remove expenses.
-- Added individual expense deletion and a "Clear All" reset feature.
+## Technologies Used
+- **HTML5:** Semantic structure for budget setup, expense forms, summary cards, and expense history.
+- **CSS3:** Responsive dashboard layout, flexbox/grid styling, and dynamic status alert themes.
+- **JavaScript (ES6+):** Arrays, loops, conditional statements, DOM manipulation, and event listeners.
+- **Git & GitHub:** Version control and remote repository hosting.
+- **Netlify:** Continuous deployment and live web hosting.
 
-## How Conditionals Are Used
-Conditional statements (`if / else if / else`) are used throughout `script.js` to validate inputs and evaluate financial health:
-- **Input Validation:** Ensures users cannot submit empty expense titles, negative numbers, or zero budgets.
-- **Budget Status Alerts:** Compares `remainingBalance` against `totalBudget` to display four distinct states:
-  - *Neutral:* When no budget has been set yet.
-  - *Safe (Green):* When more than 20% of the budget remains.
-  - *Warning (Yellow):* When 80% or more of the budget has been spent.
-  - *Danger (Red):* When total expenses exceed the set budget.
+## GitHub Repository Information
+- **Repository Name:** `spendwise-interactive`
+- - **Repository URL:**  https://github.com/Mohamedmuktar096GH/spendwise-interactive
+- **Visibility:** Public
 
-## How Arrays Are Used to Store Data
-Instead of storing each expense in separate variables, all expense records are stored as objects inside a central `expenses` array (`let expenses = []`). Each object holds an `id`, `name`, `amount`, and `category`. This makes it easy to add new records with `.push()` or remove deleted records with `.filter()`.
+## Live Netlify Website URL
+- **Live Site:** https://mohamedspendwise.netlify.app
+ 
 
-## How the DOM Is Updated
-JavaScript dynamically updates the webpage without requiring a page refresh:
-- `document.getElementById()` selects summary cards and updates `.textContent` for Total Budget, Total Spent, and Remaining Balance.
-- `.className` and `.classList.add()` dynamically change the color and message of the status banner.
-- `document.createElement()` and `.appendChild()` generate new `<li>` elements to display each recorded expense on the screen.
 
-## How User Interactions Are Handled Through Events
-`addEventListener()` connects user actions directly to JavaScript functions:
-- **`submit` on `#budget-form`:** Captures the user's budget, prevents default page reload via `event.preventDefault()`, and triggers `updateDashboard()`.
-- **`submit` on `#expense-form`:** Captures new expense details, adds them to the array, clears the form, and updates the UI.
-- **`click` on `#clear-btn` & Delete buttons:** Resets the expenses array or removes specific items and recalculates totals immediately.
+## Deployment Process Summary
+1. Organized `index.html`, `style.css`, `script.js`, and `README.md` at the root of the public GitHub repository.
+2. Logged into Netlify and authorized access to GitHub.
+3. Imported the `spendwise-interactive` repository and configured a custom subdomain (`mohamedspendwise.netlify.app`).
+4. Published the site publicly and verified all pages, styles, and scripts loaded properly.
+5. Tested continuous deployment by updating the subtitle in `index.html`, committing to GitHub, and confirming Netlify rebuilt and updated the live site automatically.
 
-## Challenges Encountered & How They Were Resolved
-- **Form Page Reloads:** Submitting forms initially refreshed the browser and wiped out stored array data. This was resolved by adding `event.preventDefault()` inside the form submit event listeners.
-- **Duplicate List Rendering:** Re-rendering the expense list initially duplicated previous items. Clearing the container using `expenseList.innerHTML = ''` at the start of `renderExpenseList()` solved the issue.
+## Challenges Encountered During Deployment
+- **Project Visibility Setting:** Immediately after the initial deploy, Netlify defaulted the project status to private. Clicking **Make public** in the project overview made the production site accessible to everyone.
+- **GitHub Authorization Verification:** Connecting Netlify to GitHub required two-factor verification via GitHub Mobile, which was completed by approving the prompt code.
+
+## Lessons Learned
+- Connecting a GitHub repository to Netlify automates builds and deployments whenever new commits are pushed to the main branch.
+- Keeping `index.html` at the root directory with relative file paths (`style.css`, `script.js`) ensures assets load reliably in production.
+- Testing both locally and on the live URL catches visibility or path issues before final delivery.
